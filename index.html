@@ -26,21 +26,21 @@
   <main>
     <div data-view="entry-form" class="container">
       <div class="row">
-          <form class="column-full">
+          <form id='form' class="column-full">
             <h1>New Entry</h1>
             <div class="display-flex">
               <img id="main-image" src="images/placeholder-image-square.jpg">
               <div class="column-half display-inline">
                 <h3 class="no-margin-top">Title</h3>
-                <input type="text" required>
+                <input id="title-text" type="text" required>
                 <h3>Photo URL</h3>
                 <input id="input-url" type="text" required>
               </div>
             </div>
             <div class="display-flex-column">
               <h3>Notes</h3>
-              <textarea class="column-full" rows="8" required></textarea>
-              <button id="save-button">SAVE</button>
+              <textarea id="notes-text" class="column-full" rows="8" required></textarea>
+              <button type="submit" id="save-button">SAVE</button>
             </div>
           </form>
       </div>
