@@ -28,9 +28,7 @@ function submitListener(event) {
   data.nextEntryId++;
 
   photo.setAttribute('src', 'images/placeholder-image-square.jpg');
-  title.value = '';
-  urlInput.value = '';
-  notes.value = '';
+  form.reset();
 }
 
 form.addEventListener('submit', submitListener);
