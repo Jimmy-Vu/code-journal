@@ -20,11 +20,11 @@
 <body>
   <div class="header-banner column-full">
     <header class="header-title container">
-      <h2>Code Journal</h2>
+      <h2 class="column-full">Code Journal</h2>
     </header>
   </div>
   <main>
-    <div data-view="entry-form" class="container">
+    <div data-view="entry-form" class="container hidden">
       <div class="row">
           <form id="form" class="column-full">
             <h1>New Entry</h1>
@@ -47,31 +47,30 @@
           </form>
       </div>
     </div>
-    <div data-view="entries">
-      <div class="container">
-        <ul>
-          <li class="row entry">
-            <img class="column-half" src="images/placeholder-image-square.jpg">
-            <div class="column-half">
-              <h2>Ada Lovelace</h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt dolores sapiente nostrum nam consequuntur est ut consectetur similique? Delectus, architecto distinctio labore voluptates nesciunt iste aperiam exercitationem beatae illum voluptatum!</p>
-              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus aliquid nesciunt distinctio atque cupiditate tenetur id minima cumque reprehenderit aliquam quis quibusdam maiores tempore, animi molestias maxime hic, magni veniam.</p>
-            </div>
-          </li>
-          <li class="row entry">
-            <img class="column-half" src="images/placeholder-image-square.jpg">
-            <div class="column-half">
-              <h2>Ada Lovelace</h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt dolores sapiente nostrum nam consequuntur est
-                ut consectetur similique? Delectus, architecto distinctio labore voluptates nesciunt iste aperiam exercitationem
-                beatae illum voluptatum!</p>
-              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus aliquid nesciunt distinctio atque
-                cupiditate tenetur id minima cumque reprehenderit aliquam quis quibusdam maiores tempore, animi molestias maxime
-                hic, magni veniam.</p>
-            </div>
-          </li>
-        </ul>
-      </div>
+    <div data-view="entries" class="container">
+      <ul>
+        <h1 class="column-full">Entries</h1>
+        <li class="row entry">
+          <img class="column-half" src="images/placeholder-image-square.jpg">
+          <div class="column-half">
+            <h2>Ada Lovelace</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt dolores sapiente nostrum nam consequuntur est ut consectetur similique? Delectus, architecto distinctio labore voluptates nesciunt iste aperiam exercitationem beatae illum voluptatum!</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus aliquid nesciunt distinctio atque cupiditate tenetur id minima cumque reprehenderit aliquam quis quibusdam maiores tempore, animi molestias maxime hic, magni veniam.</p>
+          </div>
+        </li>
+        <li class="row entry">
+          <img class="column-half" src="images/placeholder-image-square.jpg">
+          <div class="column-half">
+            <h2>Ada Lovelace</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt dolores sapiente nostrum nam consequuntur est
+              ut consectetur similique? Delectus, architecto distinctio labore voluptates nesciunt iste aperiam exercitationem
+              beatae illum voluptatum!</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus aliquid nesciunt distinctio atque
+              cupiditate tenetur id minima cumque reprehenderit aliquam quis quibusdam maiores tempore, animi molestias maxime
+              hic, magni veniam.</p>
+          </div>
+        </li>
+      </ul>
     </div>
   </main>
   <script src="js/data.js"></script>
