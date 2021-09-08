@@ -10,9 +10,6 @@ function updatePhoto(event) {
 
 urlInput.addEventListener('input', updatePhoto);
 
-/*
-  Pseudocode
-*/
 var form = document.querySelector('#form');
 var title = document.querySelector('#title-text');
 var notes = document.querySelector('#notes-text');
@@ -22,7 +19,7 @@ var entryID = 0;
 function submitListener(event) {
   event.preventDefault();
 
-  savedJournal.push({
+  savedJournal.unshift({
     title: title.value,
     photoURL: urlInput.value,
     notes: notes.value,
