@@ -18,8 +18,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="header-banner">
-    <header class="header-title">
+  <div class="header-banner column-full">
+    <header class="header-title container">
       <h2>Code Journal</h2>
     </header>
   </div>
@@ -28,19 +28,21 @@
       <div class="row">
           <form id="form" class="column-full">
             <h1>New Entry</h1>
-            <div class="display-flex">
-              <img id="main-image" src="images/placeholder-image-square.jpg">
-              <div class="column-full display-inline">
+            <div class="row">
+              <img id="main-image" class="column-full" src="images/placeholder-image-square.jpg">
+              <div class="column-half">
                 <h3 class="no-margin-top">Title</h3>
                 <input id="title-text" type="text" required>
                 <h3>Photo URL</h3>
                 <input id="input-url" type="text" required>
               </div>
             </div>
-            <div class="display-flex-column">
+            <div class="column-full">
               <h3>Notes</h3>
               <textarea id="notes-text" class="column-full" rows="8" required></textarea>
-              <button type="submit" id="save-button">SAVE</button>
+              <div class="row justify-end">
+                <button type="submit" id="save-button">SAVE</button>
+              </div>
             </div>
           </form>
       </div>
