@@ -10,19 +10,28 @@ function updatePhoto(event) {
 
 urlInput.addEventListener('input', updatePhoto);
 
+/*
+  Pseudocode
+*/
 var form = document.querySelector('#form');
 var title = document.querySelector('#title-text');
 var notes = document.querySelector('#notes-text');
-var saveSubmit = document.querySelector('#save-button');
-var savedJournal = {};
+var savedJournal = [];
+var entryID = 0;
 
 function submitListener(event) {
   event.preventDefault();
-  savedJournal = {
+
+  savedJournal.push({
     title: title.value,
     photoURL: urlInput.value,
-    notes: notes.value
-  };
+    notes: notes.value,
+    entryID: entryID
+  });
+  entryID++;
+  var jsonJournal = JSON.stringify(savedJournal);
+
+  localStorage.setItem('journalEntry', jsonJournal);
 }
 
 form.addEventListener('submit', submitListener);
