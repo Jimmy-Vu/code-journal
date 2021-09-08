@@ -30,6 +30,9 @@ function submitListener(event) {
   localStorage.setItem('journalEntry', jsonJournal);
 
   photo.setAttribute('src', 'images/placeholder-image-square.jpg');
+  title.value = '';
+  urlInput.value = '';
+  notes.value = '';
 }
 
 form.addEventListener('submit', submitListener);
