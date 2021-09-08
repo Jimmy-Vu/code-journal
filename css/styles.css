@@ -21,6 +21,10 @@ textarea:focus {
   outline-color: purple;
 }
 
+h1 {
+  font-weight: 500;
+}
+
 h2 {
   margin-top: 0;
   font-weight: 300;
