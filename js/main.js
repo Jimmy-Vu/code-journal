@@ -27,8 +27,9 @@ function submitListener(event) {
   });
   entryID++;
   var jsonJournal = JSON.stringify(savedJournal);
-
   localStorage.setItem('journalEntry', jsonJournal);
+
+  photo.setAttribute('src', 'images/placeholder-image-square.jpg');
 }
 
 form.addEventListener('submit', submitListener);
