@@ -3,7 +3,6 @@ body {
   background-color: #f0f0f0;
 }
 
-
 [data-view="entries"] img {
   margin-bottom: 25px;
 }
@@ -44,7 +43,6 @@ h1 {
 }
 
 h2 {
-
   font-weight: 300;
   margin-bottom: 0;
   margin-top: 0;
@@ -95,7 +93,6 @@ ul {
   justify-content: flex-end;
 }
 
-
 .entry {
   margin-bottom: 50px;
 }
@@ -145,7 +142,6 @@ ul {
   .no-margin-top {
     margin-top: 0;
   }
-
 
   nav h3 {
     font-weight: 300;

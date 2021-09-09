@@ -50,10 +50,18 @@ function entryAdd(entry) {
   entryDiv.className = 'column-half';
   entryListing.appendChild(entryDiv);
 
+  var titleDiv = document.createElement('div');
+  titleDiv.className = 'row justify-space-between';
+  entryDiv.appendChild(titleDiv);
+
   var entryTitle = document.createElement('h2');
   var entryTitleText = document.createTextNode(entry.title);
   entryTitle.appendChild(entryTitleText);
-  entryDiv.appendChild(entryTitle);
+  titleDiv.appendChild(entryTitle);
+
+  var editIcon = document.createElement('i');
+  editIcon.className = 'fas fa-pen';
+  titleDiv.appendChild(editIcon);
 
   var entryNotes = document.createElement('p');
   var entryNotesText = document.createTextNode(entry.notes);
