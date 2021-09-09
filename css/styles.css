@@ -93,6 +93,10 @@ ul {
   justify-content: space-between;
 }
 
+.text-align-center {
+  text-align: center;
+}
+
 #save-button {
   background-color: #572b82;
   color: white;

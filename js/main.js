@@ -36,6 +36,7 @@ function submitListener(event) {
 form.addEventListener('submit', submitListener);
 
 var entryUL = document.querySelector('#entry-list');
+var noEntriesMessage = document.querySelector('#no-entries');
 
 function entryAdd(entry) {
   var entryListing = document.createElement('li');
@@ -66,6 +67,9 @@ function entryAdd(entry) {
 window.addEventListener('DOMContentLoaded', domContentLoadedListener);
 
 function domContentLoadedListener(event) {
+  if (data.nextEntryId !== 1) {
+    noEntriesMessage.remove();
+  }
   for (var i = (data.entries.length - 1); i >= 0; i--) {
     entryAdd(data.entries[i]);
   }
