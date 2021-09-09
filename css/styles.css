@@ -7,8 +7,16 @@ body {
   margin-bottom: 25px;
 }
 
+a {
+  text-decoration: none;
+}
+
 a:hover {
   cursor: pointer;
+}
+
+a:visited {
+  color: white;
 }
 
 input {
@@ -117,6 +125,9 @@ ul {
   border-radius: 5px;
   width: 80px;
   height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .align-center {

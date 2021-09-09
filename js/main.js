@@ -26,9 +26,6 @@ function submitListener(event) {
   });
   data.nextEntryId++;
 
-  entryFormContainer.className = 'container hidden';
-  entriesMainContainer.className = 'container';
-
   photo.setAttribute('src', 'images/placeholder-image-square.jpg');
   form.reset();
 }
@@ -67,7 +64,9 @@ function entryAdd(entry) {
 window.addEventListener('DOMContentLoaded', domContentLoadedListener);
 
 function domContentLoadedListener(event) {
-  if (data.nextEntryId !== 1) {
+  switchViews(data.view);
+
+  if (data.entries !== null) {
     noEntriesMessage.remove();
   }
   for (var i = (data.entries.length - 1); i >= 0; i--) {
@@ -77,19 +76,24 @@ function domContentLoadedListener(event) {
 
 var entriesNavItem = document.querySelector('#entry-nav');
 var entriesNewButton = document.querySelector('#new-button');
-var entryFormContainer = document.querySelector('[data-view="entry-form"]');
-var entriesMainContainer = document.querySelector('[data-view="entries"]');
 
-entriesNewButton.addEventListener('click', entriesNewButtonHandler);
+entriesNewButton.addEventListener('click', dataViewHandler);
+entriesNavItem.addEventListener('click', dataViewHandler);
 
-function entriesNewButtonHandler(event) {
-  entryFormContainer.className = 'container';
-  entriesMainContainer.className = 'container hidden';
+var tabList = document.querySelectorAll('.tab');
+
+function dataViewHandler(event) {
+  var dataView = event.target.getAttribute('data-view');
+  switchViews(dataView);
 }
 
-entriesNavItem.addEventListener('click', entriesNavItemHandler);
-
-function entriesNavItemHandler(event) {
-  entryFormContainer.className = 'container hidden';
-  entriesMainContainer.className = 'container';
+function switchViews(string) {
+  for (var i = 0; i < tabList.length; i++) {
+    if (string === tabList[i].getAttribute('data-view')) {
+      tabList[i].className = 'tab container';
+      data.view = string;
+    } else {
+      tabList[i].className = 'tab container hidden';
+    }
+  }
 }
