@@ -20,7 +20,10 @@
 <body>
   <div class="header-banner column-full">
     <header class="header-title container">
-      <h2 class="column-full">Code Journal</h2>
+      <nav class="row align-center">
+        <h2>Code Journal</h2>
+        <h3 id="entry-nav"><a>Entries</a></h3>
+      </nav>
     </header>
   </div>
   <main>
@@ -48,7 +51,10 @@
       </div>
     </div>
     <div data-view="entries" class="container">
-      <h1 class="column-full">Entries</h1>
+      <div class="row align-center justify-space-between">
+        <h1>Entries</h1>
+        <button id="new-button"><a>NEW</a></button>
+      </div>
       <ul id="entry-list">
       </ul>
     </div>

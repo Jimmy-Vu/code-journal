@@ -68,3 +68,22 @@ function domContentLoadedListener(event) {
     entryAdd(data.entries[i]);
   }
 }
+
+var entriesNavItem = document.querySelector('#entry-nav');
+var entriesNewButton = document.querySelector('#new-button');
+var entryFormContainer = document.querySelector('[data-view="entry-form"]');
+var entriesMainContainer = document.querySelector('[data-view="entries"]');
+
+entriesNewButton.addEventListener('click', entriesNewButtonHandler);
+
+function entriesNewButtonHandler(event) {
+  entryFormContainer.className = 'container';
+  entriesMainContainer.className = 'container hidden';
+}
+
+entriesNavItem.addEventListener('click', entriesNavItemHandler);
+
+function entriesNavItemHandler(event) {
+  entryFormContainer.className = 'container hidden';
+  entriesMainContainer.className = 'container';
+}
