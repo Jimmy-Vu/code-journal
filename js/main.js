@@ -66,7 +66,7 @@ window.addEventListener('DOMContentLoaded', domContentLoadedListener);
 function domContentLoadedListener(event) {
   switchViews(data.view);
 
-  if (data.entries !== null) {
+  if (data.entries.length !== 0) {
     noEntriesMessage.remove();
   }
   for (var i = (data.entries.length - 1); i >= 0; i--) {
@@ -80,7 +80,7 @@ var entriesNewButton = document.querySelector('#new-button');
 entriesNewButton.addEventListener('click', dataViewHandler);
 entriesNavItem.addEventListener('click', dataViewHandler);
 
-var tabList = document.querySelectorAll('.tab');
+var viewContainerList = document.querySelectorAll('.view-container');
 
 function dataViewHandler(event) {
   var dataView = event.target.getAttribute('data-view');
@@ -88,12 +88,12 @@ function dataViewHandler(event) {
 }
 
 function switchViews(string) {
-  for (var i = 0; i < tabList.length; i++) {
-    if (string === tabList[i].getAttribute('data-view')) {
-      tabList[i].className = 'tab container';
+  for (var i = 0; i < viewContainerList.length; i++) {
+    if (string === viewContainerList[i].getAttribute('data-view')) {
+      viewContainerList[i].className = 'view-container container';
       data.view = string;
     } else {
-      tabList[i].className = 'tab container hidden';
+      viewContainerList[i].className = 'view-container container hidden';
     }
   }
 }
