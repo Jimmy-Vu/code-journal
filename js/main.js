@@ -39,6 +39,7 @@ function entryAdd(entry) {
   var entryListing = document.createElement('li');
   var firstChild = entryUL.firstChild;
   entryListing.className = 'row entry';
+  entryListing.setAttribute('data-entry-id', entry.entryID);
   entryUL.insertBefore(entryListing, firstChild);
 
   var entryImage = document.createElement('img');

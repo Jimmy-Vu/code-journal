@@ -105,6 +105,10 @@ ul {
   text-align: center;
 }
 
+.fa-pen {
+  color: #572b82;
+}
+
 #save-button {
   background-color: #572b82;
   color: white;
