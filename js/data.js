@@ -13,6 +13,7 @@ if (previousEntriesJSON !== null) {
 }
 
 function beforeunloadListener(event) {
+  event.preventDefault();
   var jsonJournal = JSON.stringify(data);
   localStorage.setItem('journalEntry', jsonJournal);
 }

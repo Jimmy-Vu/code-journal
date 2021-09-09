@@ -18,7 +18,6 @@ var title = document.querySelector('#title-text');
 var notes = document.querySelector('#notes-text');
 
 function submitListener(event) {
-  event.preventDefault();
   data.entries.unshift({
     title: title.value,
     photoURL: urlInput.value,
@@ -26,6 +25,9 @@ function submitListener(event) {
     entryID: data.nextEntryId
   });
   data.nextEntryId++;
+
+  entryFormContainer.className = 'container hidden';
+  entriesMainContainer.className = 'container';
 
   photo.setAttribute('src', 'images/placeholder-image-square.jpg');
   form.reset();
