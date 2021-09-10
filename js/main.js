@@ -109,6 +109,11 @@ function switchViews(string) {
 
 entryUL.addEventListener('click', entryListingClickHandler);
 
+var newEntryTitle = document.querySelector('#new-entry-title');
+var editEntryTitle = document.createElement('h1');
+var editEntryTitleText = document.createTextNode('Edit Entry');
+editEntryTitle.appendChild(editEntryTitleText);
+
 function entryListingClickHandler(event) {
   if (event.target.className === 'fas fa-pen') {
     switchViews('entry-form');
@@ -120,5 +125,11 @@ function entryListingClickHandler(event) {
         data.editing = data.entries[i];
       }
     }
+
+    title.value = data.editing.title;
+    urlInput.value = data.editing.photoURL;
+    photo.setAttribute('src', data.editing.photoURL);
+    notes.value = data.editing.notes;
+    newEntryTitle.replaceWith(editEntryTitle);
   }
 }
