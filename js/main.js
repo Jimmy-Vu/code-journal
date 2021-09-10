@@ -106,3 +106,11 @@ function switchViews(string) {
     }
   }
 }
+
+entryUL.addEventListener('click', entryListingClickHandler);
+
+function entryListingClickHandler(event) {
+  if (event.target.className === 'fas fa-pen') {
+    switchViews('entry-form');
+  }
+}
