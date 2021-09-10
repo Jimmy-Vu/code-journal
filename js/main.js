@@ -112,5 +112,13 @@ entryUL.addEventListener('click', entryListingClickHandler);
 function entryListingClickHandler(event) {
   if (event.target.className === 'fas fa-pen') {
     switchViews('entry-form');
+
+    var closestLI = event.target.closest('li');
+
+    for (var i = 0; i < data.entries.length; i++) {
+      if (Number.parseInt(closestLI.getAttribute('data-entry-id')) === data.entries[i].entryID) {
+        data.editing = data.entries[i];
+      }
+    }
   }
 }
