@@ -18,16 +18,30 @@ var title = document.querySelector('#title-text');
 var notes = document.querySelector('#notes-text');
 
 function submitListener(event) {
-  data.entries.unshift({
-    title: title.value,
-    photoURL: urlInput.value,
-    notes: notes.value,
-    entryID: data.nextEntryId
-  });
-  data.nextEntryId++;
+  if (data.editing !== null) {
+    for (var i = 0; i < data.entries.length; i++) {
+      if (data.editing.entryID === data.entries[i].entryID) {
+        data.entries[i].title = title.value;
+        data.entries[i].photoURL = urlInput.value;
+        data.entries[i].notes = notes.value;
+        editEntryTitle.replaceWith(newEntryTitle);
+        data.editing = null;
+        break;
+      }
+    }
+  } else {
+    data.entries.unshift({
+      title: title.value,
+      photoURL: urlInput.value,
+      notes: notes.value,
+      entryID: data.nextEntryId
+    });
+    data.nextEntryId++;
+  }
 
   photo.setAttribute('src', 'images/placeholder-image-square.jpg');
   form.reset();
+  switchViews('entries');
 }
 
 form.addEventListener('submit', submitListener);
