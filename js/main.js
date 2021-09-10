@@ -25,6 +25,9 @@ function submitListener(event) {
         data.entries[i].photoURL = urlInput.value;
         data.entries[i].notes = notes.value;
         editEntryTitle.replaceWith(newEntryTitle);
+
+        var currentEntryEdit = document.querySelector('[data-entry-id="' + data.entries[i].entryID.toString() + '"]');
+        currentEntryEdit.replaceWith(entryAdd(data.entries[i]));
         data.editing = null;
         break;
       }
@@ -36,6 +39,12 @@ function submitListener(event) {
       notes: notes.value,
       entryID: data.nextEntryId
     });
+    entryUL.prepend(entryAdd({
+      title: title.value,
+      photoURL: urlInput.value,
+      notes: notes.value,
+      entryID: data.nextEntryId
+    }));
     data.nextEntryId++;
   }
 
@@ -51,10 +60,8 @@ var noEntriesMessage = document.querySelector('#no-entries');
 
 function entryAdd(entry) {
   var entryListing = document.createElement('li');
-  var firstChild = entryUL.firstChild;
   entryListing.className = 'row entry';
   entryListing.setAttribute('data-entry-id', entry.entryID);
-  entryUL.insertBefore(entryListing, firstChild);
 
   var entryImage = document.createElement('img');
   entryImage.className = 'column-half';
@@ -82,6 +89,8 @@ function entryAdd(entry) {
   var entryNotesText = document.createTextNode(entry.notes);
   entryNotes.appendChild(entryNotesText);
   entryDiv.appendChild(entryNotes);
+
+  return entryListing;
 }
 
 window.addEventListener('DOMContentLoaded', domContentLoadedListener);
@@ -92,8 +101,8 @@ function domContentLoadedListener(event) {
   if (data.entries.length !== 0) {
     noEntriesMessage.remove();
   }
-  for (var i = (data.entries.length - 1); i >= 0; i--) {
-    entryAdd(data.entries[i]);
+  for (var i = 0; i < data.entries.length; i++) {
+    entryUL.appendChild(entryAdd(data.entries[i]));
   }
 }
 
