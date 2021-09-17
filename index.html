@@ -20,7 +20,6 @@
 <body>
   <div class="header-banner column-full">
     <header class="header-title container">
-
       <nav class="row align-center">
         <h2>Code Journal</h2>
         <h3 id="entry-nav"><a href="#" data-view="entries">Entries</a></h3>
@@ -29,6 +28,15 @@
   </div>
   <main>
     <div data-view="entry-form" class="container view-container hidden">
+      <div class="modal-container row justify-center align-center hidden">
+        <div class="delete-modal">
+          <p class="modal-text">Are you sure you want to delete this entry?</p>
+          <div class="delete-holder justify-space-between">
+            <a id="cancel-button" href="#">CANCEL</a>
+            <a id="delete-confirm-button" href="#">CONFIRM</a>
+          </div>
+        </div>
+      </div>
       <div class="row">
           <form id="form" class="column-full">
             <h1 id="new-entry-title">New Entry</h1>
@@ -44,7 +52,8 @@
             <div class="column-full">
               <h3>Notes</h3>
               <textarea id="notes-text" class="column-full" rows="8" required></textarea>
-              <div class="row justify-end">
+              <div class="row justify-space-between align-center">
+                <a id="delete-button" class="hidden">Delete Entry</a>
                 <button type="submit" id="save-button" data-view="entries">SAVE</button>
               </div>
             </div>

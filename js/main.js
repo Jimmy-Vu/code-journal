@@ -17,6 +17,8 @@ var form = document.querySelector('#form');
 var title = document.querySelector('#title-text');
 var notes = document.querySelector('#notes-text');
 
+var deleteButton = document.querySelector('#delete-button');
+
 function submitListener(event) {
   if (data.editing !== null) {
     for (var i = 0; i < data.entries.length; i++) {
@@ -26,6 +28,7 @@ function submitListener(event) {
         data.entries[i].notes = notes.value;
         editEntryTitle.replaceWith(newEntryTitle);
 
+        deleteButton.className = 'hidden';
         var currentEntryEdit = document.querySelector('[data-entry-id="' + data.entries[i].entryID.toString() + '"]');
         currentEntryEdit.replaceWith(entryAdd(data.entries[i]));
         data.editing = null;
@@ -141,6 +144,8 @@ function entryListingClickHandler(event) {
   if (event.target.className === 'fas fa-pen') {
     switchViews('entry-form');
 
+    deleteButton.className = '';
+
     var closestLI = event.target.closest('li');
 
     for (var i = 0; i < data.entries.length; i++) {
@@ -154,5 +159,43 @@ function entryListingClickHandler(event) {
     photo.setAttribute('src', data.editing.photoURL);
     notes.value = data.editing.notes;
     newEntryTitle.replaceWith(editEntryTitle);
+  }
+
+}
+
+var modalHolder = document.querySelector('.modal-container');
+deleteButton.addEventListener('click', deleteEntryListener);
+
+function deleteEntryListener(event) {
+  modalHolder.className = 'modal-container row justify-center align-center';
+}
+
+var cancelButton = document.querySelector('#cancel-button');
+cancelButton.addEventListener('click', cancelButtonListener);
+
+function cancelButtonListener(event) {
+  modalHolder.className = 'modal-container row justify-center align-center hidden';
+}
+
+var deleteConfirmButton = document.querySelector('#delete-confirm-button');
+deleteConfirmButton.addEventListener('click', deleteConfirmListener);
+
+function deleteConfirmListener(event) {
+  if (data.editing !== null) {
+    for (var i = 0; i < data.entries.length; i++) {
+      if (data.editing.entryID === data.entries[i].entryID) {
+        deleteButton.className = 'hidden';
+        var currentEntryEdit = document.querySelector('[data-entry-id="' + data.entries[i].entryID.toString() + '"]');
+        data.entries.splice(i, 1);
+        currentEntryEdit.remove();
+        data.editing = null;
+
+        modalHolder.className = 'modal-container row justify-center align-center hidden';
+        photo.setAttribute('src', 'images/placeholder-image-square.jpg');
+        form.reset();
+        switchViews('entries');
+        break;
+      }
+    }
   }
 }
